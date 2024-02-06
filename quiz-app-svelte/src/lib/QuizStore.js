@@ -7,21 +7,32 @@ const createQuizStore = () => {
         currentQuestionIndex: 0,
         answers: [],
         score: 0,
+        wrongAnswers: [], // Ajout d'un tableau pour stocker les mauvaises réponses
     });
 
     return {
         subscribe,
-        setQuestions: (questions) => set({ questions, currentQuestionIndex: 0, answers: [], score: 0 }),
+        setQuestions: (questions) => set({ questions, currentQuestionIndex: 0, answers: [], score: 0, wrongAnswers: [] }),
         answerQuestion: (answer) => update(state => {
             const isCorrect = state.questions[state.currentQuestionIndex].correctAnswer === answer;
-            return {
+            const updatedState = {
                 ...state,
                 currentQuestionIndex: state.currentQuestionIndex + 1,
                 answers: [...state.answers, answer],
                 score: isCorrect ? state.score + 1 : state.score,
             };
+
+            if (!isCorrect) {
+                updatedState.wrongAnswers.push({
+                    question: state.questions[state.currentQuestionIndex].question,
+                    correctAnswer: state.questions[state.currentQuestionIndex].correctAnswer,
+                    userAnswer: answer,
+                });
+            }
+
+            return updatedState;
         }),
-        reset: () => set({ questions: [], currentQuestionIndex: 0, answers: [], score: 0 }),
+        reset: () => set({ questions: [], currentQuestionIndex: 0, answers: [], score: 0, wrongAnswers: [] }),
     };
 };
 
