@@ -5,56 +5,56 @@
     import Button from '@smui/button';
   
     let quizData = [
-          { 
-            question: "Quelle est la capitale de la France?", 
-            options: ["Paris", "Lyon", "Marseille", "Nice", "Toulouse"], 
-            correctAnswer: "Paris" 
-          },
-          { 
-            question: "Quelle est la capitale de l'Espagne?", 
-            options: ["Madrid", "Barcelone", "Valence", "Séville", "Bilbao"], 
-            correctAnswer: "Madrid" 
-          },
-          { 
-            question: "Quelle est la capitale de l'Allemagne?", 
-            options: ["Berlin", "Munich", "Hambourg", "Francfort", "Cologne"], 
-            correctAnswer: "Berlin"
-          },
-          { 
-            question: "Quelle est la capitale de l'Italie?", 
-            options: ["Rome", "Milan", "Naples", "Turin", "Florence"], 
-            correctAnswer: "Rome" 
-          },
-          { 
-            question: "Quelle est la capitale de la Belgique?", 
-            options: ["Bruxelles", "Anvers", "Gand", "Bruges", "Namur"], 
-            correctAnswer: "Bruxelles" 
-          },
-          { 
-            question: "Quelle est la capitale du Royaume-Uni?", 
-            options: ["Londres", "Manchester", "Liverpool", "Édimbourg", "Birmingham"], 
-            correctAnswer: "Londres" 
-          },
-          { 
-            question: "Quelle est la capitale du Portugal?", 
-            options: ["Lisbonne", "Porto", "Faro", "Coimbra", "Évora"], 
-            correctAnswer: "Lisbonne" 
-          },
-          { 
-            question: "Quelle est la capitale de la Suisse?", 
-            options: ["Berne", "Zurich", "Genève", "Bâle", "Lausanne"], 
-            correctAnswer: "Berne" 
-          },
-          { 
-            question: "Quelle est la capitale de la Suède?", 
-            options: ["Stockholm", "Göteborg", "Malmö", "Uppsala", "Linköping"], 
-            correctAnswer: "Stockholm" 
-          },
-          { 
-            question: "Quelle est la capitale de la Norvège?", 
-            options: ["Oslo", "Bergen", "Stavanger", "Trondheim", "Drammen"], 
-            correctAnswer: "Oslo" 
-          },
+        { 
+          question: "Quelle est la capitale de la France? 🇫🇷", 
+          options: ["Paris", "Lyon", "Marseille", "Nice", "Toulouse"], 
+          correctAnswer: "Paris" 
+        },
+        { 
+          question: "Quelle est la capitale de l'Espagne? 🇪🇸", 
+          options: ["Madrid", "Barcelone", "Valence", "Séville", "Bilbao"], 
+          correctAnswer: "Madrid" 
+        },
+        { 
+          question: "Quelle est la capitale de l'Allemagne? 🇩🇪", 
+          options: ["Berlin", "Munich", "Hambourg", "Francfort", "Cologne"], 
+          correctAnswer: "Berlin"
+        },
+        { 
+          question: "Quelle est la capitale de l'Italie? 🇮🇹", 
+          options: ["Rome", "Milan", "Naples", "Turin", "Florence"], 
+          correctAnswer: "Rome" 
+        },
+        { 
+          question: "Quelle est la capitale de la Belgique? 🇧🇪", 
+          options: ["Bruxelles", "Anvers", "Gand", "Bruges", "Namur"], 
+          correctAnswer: "Bruxelles" 
+        },
+        { 
+          question: "Quelle est la capitale du Royaume-Uni? 🇬🇧", 
+          options: ["Londres", "Manchester", "Liverpool", "Édimbourg", "Birmingham"], 
+          correctAnswer: "Londres" 
+        },
+        { 
+          question: "Quelle est la capitale du Portugal? 🇵🇹", 
+          options: ["Lisbonne", "Porto", "Faro", "Coimbra", "Évora"], 
+          correctAnswer: "Lisbonne" 
+        },
+        { 
+          question: "Quelle est la capitale de la Suisse? 🇨🇭", 
+          options: ["Berne", "Zurich", "Genève", "Bâle", "Lausanne"], 
+          correctAnswer: "Berne" 
+        },
+        { 
+          question: "Quelle est la capitale de la Suède? 🇸🇪", 
+          options: ["Stockholm", "Göteborg", "Malmö", "Uppsala", "Linköping"], 
+          correctAnswer: "Stockholm" 
+        },
+        { 
+          question: "Quelle est la capitale de la Norvège? 🇳🇴", 
+          options: ["Oslo", "Bergen", "Stavanger", "Trondheim", "Drammen"], 
+          correctAnswer: "Oslo" 
+        },
           // { 
           //   question: "Quelle est la capitale de la Finlande?", 
           //   options: ["Helsinki", "Tampere", "Turku", "Oulu", "Lahti"], 
@@ -109,14 +109,14 @@
   
   <div>
     {#if $quizStore.currentQuestionIndex < $quizStore.questions.length}
-        <h3>Question {$quizStore.currentQuestionIndex + 1} sur {$quizStore.questions.length}</h3>
+        <h3 style="color: white"  >Question {$quizStore.currentQuestionIndex + 1} sur {$quizStore.questions.length}</h3>
         <Question
             question={$quizStore.questions[$quizStore.currentQuestionIndex]}
             onAnswer={answerQuestion}
         />
     {:else}
         <div>
-            <h3>Quiz terminé ! Votre score : {$quizStore.score} / {$quizStore.questions.length}</h3>
+            <h3 style="color: white" >Quiz terminé ! Votre score : {$quizStore.score} / {$quizStore.questions.length}</h3>
             <Button on:click={() => location.reload()}>Recommencer</Button>
 
         </div>
